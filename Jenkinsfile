@@ -2,6 +2,23 @@ pipeline {
     agent any
 
     stages {
+         stage('Docker Login') {
+            steps {
+                script {
+                    // Método 1: Usando withCredentials (RECOMENDADO)
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-login', 
+                                                    passwordVariable: 'DOCKER_PASSWORD', 
+                                                    usernameVariable: 'DOCKER_USERNAME')]) {
+                        sh '''
+                            echo "Fazendo login no Docker Hub..."
+                            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                        '''
+                    }
+                }
+            }
+        }
+
+
         stage('Build Docker Image') {
             steps {
                 script {
