@@ -13,7 +13,7 @@ pipeline {
                  sh 'echo "Executando o comando Push"'
                 }
             }
-        }     
+             
 
         stage('Deploy no Kubernetes') {
           
