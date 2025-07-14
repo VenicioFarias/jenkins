@@ -5,7 +5,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker login -u veniciofarias -p '0223010@Vf'
                     dockerapp = docker.build("veniciofarias/jenkins-guia:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
                 }
             }
