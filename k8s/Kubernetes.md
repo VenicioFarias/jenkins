@@ -52,7 +52,7 @@ rules:
   - apiGroups: [""]
     resources: ["pods/log"]
     verbs: ["get", "list"]
-
+```
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -69,6 +69,7 @@ subjects:
     namespace: projeto-apis-pefoce
 
 ---
+```
 # Token de longa duração para o Jenkins
 apiVersion: v1
 kind: Secret
